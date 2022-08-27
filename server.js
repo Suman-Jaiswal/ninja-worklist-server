@@ -1,8 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const app = express()
 const path = require('path')
+const app = express()
 const planRouter = require('./routes/api/plans')
 const topicRouter = require('./routes/api/topics')
 require('dotenv').config()
@@ -27,7 +27,18 @@ app.use('/api/plans', planRouter)
 app.use('/api/topics', topicRouter)
 
 app.get('/', (req, res) => {
-    res.send("OK: Server is running!");
+    var options = {
+        root: path.join(__dirname)
+    };
+
+    var fileName = 'msg.html';
+    res.sendFile(fileName, options, function (err) {
+        if (err) {
+            next(err);
+        } else {
+            console.log('Sent:', fileName);
+        }
+    });
 })
 
 // serve static assets if in production
