@@ -15,8 +15,8 @@ mongoose.connect(DB_URI, {
     // useCreateIndex: true,
     useUnifiedTopology: true
 })
-.then(res => console.log('mongoDB connected...'))
-.catch(err => console.log(err))
+    .then(res => console.log('mongoDB connected...'))
+    .catch(err => console.log(err))
 
 
 //middleware
@@ -27,12 +27,6 @@ app.use('/api/plans', planRouter)
 app.use('/api/topics', topicRouter)
 
 // serve static assets if in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'))
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
 
 // server
 app.listen(port, () => {
