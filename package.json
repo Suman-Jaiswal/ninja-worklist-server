@@ -1,9 +1,9 @@
 {
-    "name": "worklist",
+    "name": "ninja-worklist-server",
     "version": "1.0.0",
     "description": "To-Do List App",
     "main": "server.js",
-    "repository": "https://github.com/Suman-Jaiswal/worklist-with-backend.git",
+    "repository": "https://github.com/Suman-Jaiswal/ninja-worklist-server.git",
     "author": "Suman Jaiswal",
     "license": "MIT",
     "dependencies": {

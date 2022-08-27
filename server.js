@@ -26,6 +26,10 @@ app.use(express.json())
 app.use('/api/plans', planRouter)
 app.use('/api/topics', topicRouter)
 
+app.get('/', (req, res) => {
+    res.send("OK: Server is running!");
+})
+
 // serve static assets if in production
 
 // server
