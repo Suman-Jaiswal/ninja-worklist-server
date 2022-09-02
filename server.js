@@ -7,6 +7,7 @@ const topicRouter = require('./routes/api/topics')
 require('dotenv').config()
 const DB_URI = process.env.MONGO_URI
 const port = process.env.PORT || 5000;
+const cors = require('cors');
 
 //database connection
 mongoose.connect(DB_URI, {
@@ -19,6 +20,9 @@ mongoose.connect(DB_URI, {
 
 
 //middleware
+app.use(cors({
+    origin: "*"
+}))
 
 app.use(express.json())
 app.use('/api/plans', planRouter)
